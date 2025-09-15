@@ -99,7 +99,27 @@ h1 {
     padding: 15px;
     text-align: center;
     background-color: #f1f1f1;
-    margin: 0;
+    margin: 0;// sketch.js
+
+let videoPlayer;
+let videoSources = [
+    'video1.mp4', // Substitua com o caminho do seu vídeo
+    'video2.mp4', // Substitua com o caminho do seu vídeo
+    'video3.mp4'  // Substitua com o caminho do seu vídeo
+];
+
+function setup() {
+    noCanvas();  // Não estamos usando o canvas do p5.js diretamente
+    videoPlayer = select('#video-player'); // Seleciona o player de vídeo
+}
+
+function playVideo(index) {
+    const videoSource = select('#video-source');
+    videoSource.attribute('src', videoSources[index]); // Altera a fonte do vídeo
+    videoPlayer.elt.load(); // Recarrega o vídeo
+    videoPlayer.elt.play(); // Começa a reprodução
+}
+
 }
 
 .player {
